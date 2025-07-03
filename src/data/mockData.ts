@@ -131,4 +131,4 @@ export const mockUserSkills: UserSkill[] = [
 ];
 
 // Current logged in user
-export const currentUser = mockUsers[8]; // Chris Lee - Engineer
+export const currentUser = mockUsers[1]; // Sarah Johnson - Technical Specialist
