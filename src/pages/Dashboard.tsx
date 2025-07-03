@@ -3,8 +3,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 import { SkillCard } from "@/components/SkillCard";
 import { UserProfile } from "@/components/UserProfile";
+import { Link } from "react-router-dom";
 import { 
   mockSkills, 
   mockUserSkills, 
@@ -72,12 +74,23 @@ export default function Dashboard() {
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Skill Matrix Dashboard
-          </h1>
-          <p className="text-muted-foreground">
-            Manage your professional skills and track your development progress
-          </p>
+          <div className="flex justify-between items-center">
+            <div className="flex-1">
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Skill Matrix Dashboard
+              </h1>
+              <p className="text-muted-foreground">
+                Manage your professional skills and track your development progress
+              </p>
+            </div>
+            {(currentUser.role === 'technical_specialist' || currentUser.role === 'manager') && (
+              <Link to="/technical-specialist">
+                <Button variant="outline" className="ml-4">
+                  Technical Specialist View
+                </Button>
+              </Link>
+            )}
+          </div>
         </div>
 
         {/* User Profile */}
